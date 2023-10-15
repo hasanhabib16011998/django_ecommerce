@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Reset Password{% endblock %}
+{% block body %}
+<section class="main-container col1-layout">
+    <div class="main container">
+      
+      <div class="account-login">
+        <div class="page-title">
+          <h2>Forgot Password</h2>
+        </div>
+        <fieldset>
+          <div class="registered-users">
+            <div class="content">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum.</p>
+              {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+              <form method='POST'>
+                {% csrf_token %}
+              <ul class="form-list">
+                <li>
+                  <label for="email">Email<span class="required">*</span></label>
+                  <input type="email" title="Email" id="email" class="input-text required-entry validate-password" name="email">
+                </li>
+              </ul>
+              
+              <div class="buttons-set">
+                <button id="send2" name="send" type="submit" class="button login"><span>Reset my Password</span></button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+</section>
+{% endblock %}

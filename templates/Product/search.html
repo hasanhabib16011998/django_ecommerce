@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Search</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Include Bootstrap CSS via CDN (optional) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body style="background-color: #f8f9fa;">
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
+            {{message}}
+        </li>
+        {% endfor %}
+    </ul>
+
+
+
+    <form method="GET" style="margin: 20px; padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); opacity: 0; transition: opacity 0.5s;">
+        {{ form.as_p }}
+
+        <button type='submit'>Submit</button>
+        
+    </form>
+
+    <ul>
+        {% for product in product %}
+        <li>{{product.title}}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Include Bootstrap JavaScript via CDN (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <!-- Inline JavaScript to add animations -->
+    <script>
+        // Function to add a fade-in animation to the form
+        function fadeInForm() {
+            const form = document.querySelector('form');
+            form.style.opacity = '1';
+        }
+
+        // Trigger the animation when the page loads
+        window.addEventListener('load', fadeInForm);
+    </script>
+</body>
+</html>

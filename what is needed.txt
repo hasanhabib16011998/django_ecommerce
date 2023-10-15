@@ -1,0 +1,4 @@
+1. Slider -title,title 1,description,button tag, Image
+2.Catagories-title
+3.Sub Catagories-title,catagory
+4.Product- title,subcatagory,catagory,name,image,image2,image3,currect price,previous price,short description,color,size,top seller,deals of the day,trending products,featured products,condition,quantity,Wishlist,description.
