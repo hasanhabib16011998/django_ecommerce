@@ -87,3 +87,6 @@ urlpatterns = [
     path('accounts/',include(LetsShop_Accounts.urls)),
     path('',include(LetsShop_App.urls)),
 ]
+
+14. create a new repository and commit: 
+token: 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
