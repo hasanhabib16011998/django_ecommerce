@@ -33,6 +33,14 @@
     <ul>
         {% for product in product %}
         <li>{{product.title}}</li>
+        <img style="height:100px;width:150px" src="{{product.image.url}}" alt=""/>
+        <li>{{product.image}}</li>
+        <li>{{product.catagory}}</li>
+        <li>{{product.color}}</li>
+        <li>${{product.current_price}}
+        <br/>
+        <br/>
+
         {% endfor %}
     </ul>
 

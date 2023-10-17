@@ -51,7 +51,7 @@
                                 <ul class="nav">
                                   {% for sub_sub_catagory in subcatagory.supersubcatagory_set.all %}
 
-                                  <li><a href="shop-grid-sidebar.html">{{sub_sub_catagory.title}}</a></li>
+                                  <li><a href="{% url 'super_sub_prod' sub_sub_catagory.id %}">{{sub_sub_catagory.title}}</a></li>
                                   {% endfor %}
 
                                 </ul>

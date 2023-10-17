@@ -7,8 +7,10 @@ from django.contrib import messages
 # Create your views here.
 def Home(request):
     slides=Slider.objects.all()
+    products=Product.objects.all()
+    feature_prod=products.filter(featured_product=True)
 
-    return render(request,'Home.html',{'slides':slides})
+    return render(request,'Home.html',{'slides':slides,'feature_prod':feature_prod})
 
 def product_search_view(request):
     try:
@@ -24,25 +26,24 @@ def product_search_view(request):
             condition=form.cleaned_data.get('condition')
             if query:
                 product=products.objects.filter(Q(title__icontains=query))
-            if catagory:
+            elif catagory:
                 product=products.filter(catagory=catagory)
-            if sub_catagory:
-                product=products.filter(sub_catagory=sub_catagory)
-            if color:
-                product=products.filter(color=color)
-            if size:
-                product=products.filter(size=size)
-            if condition:
-                product=products.filter(condition=condition)
+            elif sub_catagory:
+                product=products.filter(sub_catagory=sub_catagory,catagory=catagory)
+            elif color:
+                product=product.filter(color=color)
+            elif size:
+                product=product.filter(size=size)
+            elif condition:
+                product=product.filter(condition=condition)
     
     except Exception as e:
         messages.warning(request,'No product Available.')
         return redirect('product_search_view')
 
-        
-        
-
-
-
     return render(request,'Product/search.html',locals())
+
+def super_sub_prod(request,id):
+    prod=Product.objects.filter(super_sub_catagory=id)
+    return render(request,'Product/super_sub_prod.html',locals())
              

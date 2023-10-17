@@ -1,6 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
+def logedin_user():
+    from django.contrib.auth import get_user
+    return get_user()
 # Create your models here.
 class Slider(models.Model):
     title=models.CharField(max_length=50)
@@ -52,10 +56,11 @@ class Condition(models.Model):
     
 class Product(models.Model):
  
-    posted_by=models.ForeignKey(User, verbose_name=("Posted By"), on_delete=models.CASCADE)
+    posted_by=models.ForeignKey(User,default=logedin_user, verbose_name=("Posted By"), on_delete=models.CASCADE)
     title=models.CharField(max_length=50)
     catagory=models.ForeignKey(Catagory, verbose_name=("Catagories"), on_delete=models.CASCADE)
     sub_catagory=models.ForeignKey(SubCatagory, verbose_name=("Sub-Catagory"), on_delete=models.CASCADE)
+    super_sub_catagory=models.ForeignKey(SuperSubCatagory, verbose_name=("Super-Sub-Catagory"), on_delete=models.CASCADE,blank=True,null=True)
     image=models.ImageField(upload_to='Product_image1/')
     image2=models.ImageField(upload_to='Product_image2/')
     image3=models.ImageField(upload_to='Product_image3/')
@@ -77,6 +82,7 @@ class Product(models.Model):
 
     def __str__(self):
         return str(self.title)
+
 
 
 
