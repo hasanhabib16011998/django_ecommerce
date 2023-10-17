@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 from .forms import *
 from django.db.models import Q
@@ -37,6 +37,7 @@ def product_search_view(request):
     
     except Exception as e:
         messages.warning(request,'No product Available.')
+        return redirect('product_search_view')
 
         
         

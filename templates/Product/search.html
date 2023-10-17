@@ -19,13 +19,14 @@
         </li>
         {% endfor %}
     </ul>
+    {% endif %}
 
 
 
     <form method="GET" style="margin: 20px; padding: 20px; background-color: #fff; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); opacity: 0; transition: opacity 0.5s;">
         {{ form.as_p }}
 
-        <button type='submit'>Submit</button>
+        <button type='submit' class="btn btn-primary">Submit</button>
         
     </form>
 
