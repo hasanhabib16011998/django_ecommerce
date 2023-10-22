@@ -89,4 +89,4 @@ urlpatterns = [
 ]
 
 14. create a new repository and commit: 
-token: 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
+token: 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
